@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Quotes</title>
+</head>
+<body>
+    <a th:href="@{'/watchlist/'+ ${username}}"> WATCHLIST </a>
+    <a th:href="@{'/marketmovers/' + ${username}}"> MARKET MOVERS </a>
+    <br>
+    <br>
+    <h1>Stock Data</h1> 
+
+    <div th:object="${quotes}">
+
+        <hr>
+        <p>
+            <p>Stock Price of:</p>
+            <p th:text="*{symbol}"></p>
+            <br>
+            <p>Last Price:</p>
+            <p th:text="*{lastPrice}"></p> 
+            <br>
+            <p>Total Volume:</p>
+            <p th:text="*{totalVolume}"></p>
+            <br>
+            <p>Open Price:</p>
+            <p th:text="*{openPrice}"></p>
+            <br>
+            <p>Close Price:</p>
+            <p th:text="*{closePrice}"></p>
+            <br>
+            <p>Low Price:</p>
+            <p th:text="*{lowPrice}"></p>
+            <br>
+            <p>High Price:</p>
+            <p th:text="*{highPrice}"></p>
+            <br>
+            <p>Net Change:</p>
+            <p th:text="*{netChange}"></p>
+            <br>
+            <p>52 Week High:</p>
+            <p th:text="*{fiftyTwoWkHigh}"></p>
+            <br>
+            <p>52 Week Low:</p>
+            <p th:text="*{fiftyTwoWkLow}"></p>
+        </p>
+    </div>
+    <!-- should use href here and button or jsut use <input type="submit" value="Save"/> -->
+
+    <form 
+    action="#" 
+    th:action="@{'/add/' + ${username}}" 
+    th:object="${quotes}"
+    method="post" >
+
+        <input type="hidden" th:field="${quotes.symbol}"></input>
+        <input type="hidden" th:field="${quotes.fiftyTwoWkHigh}"></input>
+        <input type="hidden" th:field="${quotes.fiftyTwoWkLow}"></input>
+        <input type="hidden" th:field="${quotes.lastPrice}"></input>
+
+    <button type="submit">Add</button>
+   
+    </form>
+    
+</body>
+</html>
+

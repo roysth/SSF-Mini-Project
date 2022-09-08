@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATCHLIST</title>
+</head>
+<body>
+    <a th:href="@{'/quotes/' + ${username}}"> QUOTES </a>
+    <a th:href="@{'/marketmovers/' + ${username}}"> MARKET MOVERS </a>
+    <br>
+    <br>
+    <h1>Watchlist ❤️</h1> 
+    
+    <table id="mywatchlist">
+        <tr>
+            <th><h3> Symbol </h3></th>
+            <th><h3> 52 Week High </h3></th>
+            <th><h3> 52 Week Low </h3></th>
+            <th><h3> Last Price </h3></th>
+
+        </tr>
+        <div th:object ="${watchlist}">
+            <!--changed from *{listOfQuotes} to ${listOfQuotes}-->
+            <tr th:each="quotes: *{listOfQuotes}">
+                <td th:text="${quotes.symbol}"></td>
+                <td th:text="${quotes.fiftyTwoWkHigh}"></td>
+                <td th:text="${quotes.fiftyTwoWkLow}"></td>
+                <td th:text="${quotes.lastPrice}"></td>
+                <td> 
+                    <a th:href="@{'/delete/'+ ${username} + '/' + ${quotes.symbol}}">
+                    <button type="button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            
+        </div>
+    </table>
+
+</body>
+</html>

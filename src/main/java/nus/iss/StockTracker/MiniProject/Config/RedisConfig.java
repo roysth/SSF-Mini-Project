@@ -1,9 +1,7 @@
 package nus.iss.StockTracker.MiniProject.Config;
 
-import java.io.InputStream;
 import java.util.Optional;
 
-import org.apache.catalina.realm.UserDatabaseRealm.UserDatabasePrincipal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,15 +12,11 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import nus.iss.StockTracker.MiniProject.Model.User;
 
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
 //STANDARD CONFIG CODE IF USING REDIS

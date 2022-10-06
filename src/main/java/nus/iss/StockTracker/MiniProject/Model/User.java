@@ -1,8 +1,8 @@
 package nus.iss.StockTracker.MiniProject.Model;
 
 import java.io.Serializable;
-
 import org.springframework.stereotype.Component;
+
 
 @Component ("user")
 public class User implements Serializable {
@@ -19,6 +19,7 @@ public class User implements Serializable {
     }
 
     public Watchlist getWatchlist() {
+        
         return watchlist;
     }
 

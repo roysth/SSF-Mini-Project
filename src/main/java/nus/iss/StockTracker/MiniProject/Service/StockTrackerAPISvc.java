@@ -1,5 +1,6 @@
 package nus.iss.StockTracker.MiniProject.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -11,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import nus.iss.StockTracker.MiniProject.Model.Quotes;
-import nus.iss.StockTracker.MiniProject.Model.MarketMovers;
 
 
 @Service
@@ -73,5 +73,14 @@ public class StockTrackerAPISvc {
         ResponseEntity<String> resp = template.getForEntity(marketMoverseUrl, String.class);
 
         return resp.getBody();
+    }
+
+    public List<Quotes> updateList(List<Quotes> listOfQuotes){
+        for (Quotes q: listOfQuotes) {
+            String ticker = q.getSymbol(); 
+            Optional <Quotes> w = getQuotes(ticker);
+            q = w.get();
+        }
+        return listOfQuotes;
     }
 }

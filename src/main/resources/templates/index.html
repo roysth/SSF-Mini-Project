@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <title>Log In Page</title>
 </head>
-<body>
+
+<body class="bg-light">
+
+
+    <div class="container px-4 py-4 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+            <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(220, 27%, 4%)">
+              Welcome to<br/>
+              <span style="color: hsl(206, 86%, 62%)">OnlyStocks</span>
+            </h1>
+            <p class="mb-5 opacity-70" style="color: hsl(220, 7%, 56%)">
+              The only stocks site you ever need 
+            </p>
+          </div>
+    
     <form 
     action="#" 
     th:action="@{/login}" 
-    method="post" >
+    method="post">
 
         <label>Username</label>
         <input type="text" th:name="username" placeholder="Enter Username" required>
@@ -18,7 +34,8 @@
    
     </form>
     
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script> 
 
 </body>
 </html>

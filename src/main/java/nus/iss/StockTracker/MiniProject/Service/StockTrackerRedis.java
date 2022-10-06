@@ -39,6 +39,13 @@ public class StockTrackerRedis {
         redisTemplate.opsForValue().set(user.getUsername(), user);
     } 
 
+    public Optional<User> restConResponse(String username){
+        logger.info("Restcontoller calling for >>>" + username);
+        User restUser = (User) redisTemplate.opsForValue().get(username);
+        return Optional.of(restUser);
+    }
+    
+
 }
 
 /*

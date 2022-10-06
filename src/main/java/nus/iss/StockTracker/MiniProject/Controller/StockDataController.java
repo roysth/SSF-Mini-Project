@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 
 import nus.iss.StockTracker.MiniProject.Model.Quotes;
 import nus.iss.StockTracker.MiniProject.Model.User;
+import nus.iss.StockTracker.MiniProject.Model.Watchlist;
 import nus.iss.StockTracker.MiniProject.Model.MarketMovers;
 import nus.iss.StockTracker.MiniProject.Service.StockTrackerAPISvc;
 import nus.iss.StockTracker.MiniProject.Service.StockTrackerRedis;
@@ -66,6 +67,10 @@ public class StockDataController {
     @GetMapping ("/watchlist/{username}")
     public String watchlist (@PathVariable(name="username", required=true) String username, Model model) {
         User user = redisSvc.findByUsername(username).get();
+        //to refresh and get the latest prices
+        List<Quotes> listOfQuotes = user.getWatchlist().getListOfQuotes();
+        listOfQuotes = apiSvc.updateList(listOfQuotes);
+        user.getWatchlist().setListOfQuotes(listOfQuotes);
         model.addAttribute("watchlist", user.getWatchlist());
         model.addAttribute("username", username); 
         return "watchlist"; 
@@ -79,17 +84,16 @@ public class StockDataController {
     public String add (@PathVariable(name="username", required=true) String username, @ModelAttribute Quotes quotes, Model model) {
         logger.info(">>> TEST" + quotes.getSymbol());
         logger.info("TESTTESTTESTTEST");
-        //Watchlist watchlist = new Watchlist();
+        Watchlist watchlist = new Watchlist();
         logger.info(">>>TEST222222222222222222");
         User user = redisSvc.findByUsername(username).get();
         logger.info(">>>TEST33333333333333333333333");
-        /*if (user.getWatchlist() != null) {
+        if (user.getWatchlist() != null) {
             watchlist = user.getWatchlist();  
         }
-                watchlist.addQuotes(quotes);
+            watchlist.addQuotes(quotes);
         user.setWatchlist(watchlist);
-        */
-        user.getWatchlist().addQuotes(quotes);
+        logger.info("TEST");
         redisSvc.save(user);
         model.addAttribute("watchlist", user.getWatchlist());
         model.addAttribute("username", username); 

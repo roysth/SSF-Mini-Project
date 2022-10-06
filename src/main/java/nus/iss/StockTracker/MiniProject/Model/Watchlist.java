@@ -2,11 +2,14 @@ package nus.iss.StockTracker.MiniProject.Model;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import org.springframework.stereotype.Component;
+
 
 @Component ("watchlist")
 public class Watchlist {
+
+    // @Autowired
+    // StockTrackerAPISvc apiSvc;
 
     //USE LINKEDLIST
     private List<Quotes> listOfQuotes = new LinkedList<>();

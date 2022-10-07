@@ -8,16 +8,31 @@
     <title>Enter Ticker</title>
 </head>
 <body>
-    <a th:href="@{'/watchlist/' + ${username}}"> WATCHLIST </a>
-    <a th:href="@{'/marketmovers/' + ${username}}"> MARKET MOVERS </a>
-    <a th:href="@{'/mainpage/' + ${username}}"> MAIN PAGE</a>
-    
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <span style="color: hsl(206, 86%, 62%)">OnlyStocks</span>
+             <button 
+                class="navbar-toggler" 
+                type="button"
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav" 
+                aria-expanded="false"
+                aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link" th:href="@{'/marketmovers/' + ${username}}"> MARKET MOVERS </a></li>
+                    <li><a class="nav-link" th:href="@{'/watchlist/' + ${username}}"> WATCHLIST </a></li>
+                    <li><a class="nav-link" th:href="@{'/enterticker/' + ${username}}"> QUOTES </a>
+                    <li><a class="nav-link" th:href="@{/}">LOG OUT</a></li>
+                </ul>
+             </div>
+        </div>
+    </nav>
     <br>
-    <br>
-
-    <h1> Get Quotes </h1>
-    <br>
-    <h2>Enter Ticker:</h2>
+    <h2 style="color: hsl(210, 75%, 2%);text-align: left"> Enter Ticker: </h2> 
 
     <form
     action="#"

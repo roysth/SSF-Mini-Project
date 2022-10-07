@@ -32,46 +32,57 @@
              </div>
         </div>
     </nav> 
+
+    <h1 style="color: hsl(206, 86%, 62%)"> Market Movers </h1>
     <br>
-    <br>
+    <div class="container-fluid" style="background-color: black; color:#FAF3E3;"></div>  
+        <div class="row">
+            <div class="col">
+                <h4> Biggest Gainers </h4>
+                <br>
+                <table id="marketmoverstable">
+                    <tr>
+                        <th><h5> Symbol </h5></th>
+                        <th><h5> % Change </h5></th>
+                        <th><h5> Description </h5></th>
+                        <th><h5> Total Volume </h5></th>
+                        <th><h5> Last Price </h5></th>
+                    </tr>
+                    <tr th:each="marketmovers: ${UpMovers}">
+                        <td th:text="${marketmovers.symbol}"></td>
+                        <td th:text="${#numbers.formatDecimal(marketmovers.change*100,1,2) + '%'}"></td>
+                        <td th:text="${marketmovers.description}"></td>
+                        <td th:text="${marketmovers.totalVolume}"></td>
+                        <td th:text="${marketmovers.last}"></td>  
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mt-3">
+                <h4> Biggest Losers </h4>
+                <br>
+                <table id="marketmoverstable2">
+                    <tr>
+                        <th><h5> Symbol </h5></th>
+                        <th><h5> % Change </h5></th>
+                        <th><h5> Description </h5></th>
+                        <th><h5> Total Volume </h5></th>
+                        <th><h5> Last Price </h5></th>
+                    </tr>
+                    <tr th:each="marketmovers2: ${DownMovers}">
+                        <td th:text="${marketmovers2.symbol}"></td>
+                        <td th:text="${#numbers.formatDecimal(marketmovers2.change*100,1,2) + '%'}"></td>
+                        <td th:text="${marketmovers2.description}"></td>
+                        <td th:text="${marketmovers2.totalVolume}"></td>
+                        <td th:text="${marketmovers2.last}"></td> 
+                    </tr>
+                </table> 
+            </div>
+        </div>
+    </div>
     
-    <h1> Market Movers </h1>
-    <br>
-      
-    <h2> Biggest Gainers </h2>
-    <table id="marketmoverstable">
-        <tr>
-            <th><h3> Symbol </h3></th>
-            <th><h3> % Change </h3></th>
-            <th><h3> Description </h3></th>
-            <th><h3> Total Volume </h3></th>
-            <th><h3> Last Price </h3></th>
-        </tr>
-        <tr th:each="marketmovers: ${UpMovers}">
-            <td th:text="${marketmovers.symbol}"></td>
-            <td th:text="${#numbers.formatDecimal(marketmovers.change*100,1,2) + '%'}"></td>
-            <td th:text="${marketmovers.description}"></td>
-            <td th:text="${marketmovers.totalVolume}"></td>
-            <td th:text="${marketmovers.last}"></td>  
-        </tr>
-    </table>
-    <h4> Biggest Losers </h4>
-    <table id="marketmoverstable2">
-        <tr>
-            <th><h5> Symbol </h5></th>
-            <th><h5> % Change </h5></th>
-            <th><h5> Description </h5></th>
-            <th><h5> Total Volume </h5></th>
-            <th><h5> Last Price </h5></th>
-        </tr>
-        <tr th:each="marketmovers2: ${DownMovers}">
-            <td th:text="${marketmovers2.symbol}"></td>
-            <td th:text="${#numbers.formatDecimal(marketmovers2.change*100,1,2) + '%'}"></td>
-            <td th:text="${marketmovers2.description}"></td>
-            <td th:text="${marketmovers2.totalVolume}"></td>
-            <td th:text="${marketmovers2.last}"></td> 
-        </tr>
-    </table> 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>     
 </body>

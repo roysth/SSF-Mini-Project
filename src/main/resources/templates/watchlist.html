@@ -30,19 +30,26 @@
                 </ul>
              </div>
         </div>
-    </nav> 
+    </nav>
+    <hr> 
     <br>
+    <h2 class="fw-normal ls-tight" style="color: hsl(206, 86%, 62%);text-align: left">
+        <span th:text="${username}"></span>'s Watchlist
+    </h2> 
     <br>
-    <h1>Watchlist ❤️</h1> 
     
-    <table id="mywatchlist">
-        <tr>
-            <th><h3> Symbol </h3></th>
-            <th><h3> 52 Week High </h3></th>
-            <th><h3> 52 Week Low </h3></th>
-            <th><h3> Last Price </h3></th>
+    <table class="table table-sm" id="mywatchlist" style="border: 3px solid black; text-align: center;">
+        <thead>
+            <tr>
+                <th><h3> Symbol </h3></th>
+                <th><h3> 52 Week High </h3></th>
+                <th><h3> 52 Week Low </h3></th>
+                <th><h3> Last Price </h3></th>
+                <th><h3> Action </h3></th>
 
-        </tr>
+            </tr>
+        </thead>
+
         <div th:object ="${watchlist}">
             <!--changed from *{listOfQuotes} to ${listOfQuotes}-->
             <tr th:each="quotes: *{listOfQuotes}">
@@ -59,6 +66,7 @@
             
         </div>
     </table>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>  
 </body>

@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <title>Error Page</title>
 </head>
-<body onload="setTimeout(function(){document.location = '/home'}, 5000)">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<body onload="setTimeout(function(){document.location = '/'}, 6000)">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
+    crossorigin="anonymous">
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class = "text-center">
-        <img style="width: auto; height: 70vh;" th:src="pokeError.jpg"></img><br>
-        <span class="d-flex justify-content-center"><strong>ELECTRODE HAS CRASHED THE APP</strong></span><br>
-        <span>REASON: AN INVALID POKEMON NAME OR ID WAS ENTERED</span>
-        <a th:href="@{/}"><span class="d-flex justify-content-center">CLICK TO RETURN HOME</span></a>
+        <br>
+        <h1 class="my-5 display-5 fw-bold " style="color: hsl(210, 6%, 7%); text-align: center">
+        &#9940 Your watchlist is empty! &#9940
+        <br>
+        Please add a stock into your watchlist before accessing this page!
+        </h1>
+        <p>You will be redirected to the login page shortly</p>
+        <a th:href="@{/}"><span class="text-decoration-underline" style="color: hsl(206, 86%, 62%); text-align: center">CLICK TO RETURN HOME</span></a>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>

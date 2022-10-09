@@ -11,8 +11,8 @@
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <span style="color: hsl(206, 86%, 62%)">OnlyStocks</span>
-             <button 
-                class="navbar-toggler" 
+            <button 
+                class="navbar-toggler bg-dark" 
                 type="button"
                 data-bs-toggle="collapse" 
                 data-bs-target="#navbarNav"
@@ -20,24 +20,35 @@
                 aria-expanded="false"
                 aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarNav">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li><a class="nav-link" th:href="@{'/marketmovers/' + ${username}}"> MARKET MOVERS </a></li>
                     <li><a class="nav-link" th:href="@{'/watchlist/' + ${username}}"> WATCHLIST </a></li>
                     <li><a class="nav-link" th:href="@{'/enterticker/' + ${username}}"> QUOTES </a>
                     <li><a class="nav-link" th:href="@{/}">LOG OUT</a></li>
                 </ul>
-             </div>
+            </div>
         </div>
     </nav>  
+    <hr>
 
     <br>
     <br>
     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(220, 27%, 4%);text-align: center">
-        Welcome, <span th:text="${username}"></span>!</h1> 
+        Welcome, <span th:text="${username}"></span>!
+    </h1> 
 
     <h2 style="color: hsl(206, 86%, 62%);text-align: center" >What would you like to achieve today?</h2>
+    <br>
+    <figure>
+        <blockquote class="blockquote" style="color: hsl(180, 5%, 4%);text-align: center" >
+          <p>“A year from now you may wish you had started today”</p>
+        </blockquote>
+        <figcaption class="blockquote-footer" style="color: hsl(206, 86%, 62%);text-align: center">
+            <cite title="Source Title">Karen Lamb </cite>
+        </figcaption>
+    </figure>
 
    
 

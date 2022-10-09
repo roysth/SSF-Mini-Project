@@ -30,44 +30,33 @@
                 </ul>
              </div>
         </div>
-    </nav> 
+    </nav>
+    <hr> 
     <br>
-    <br>
-    <h1 style="color: hsl(206, 86%, 62%)"> Stock Data</h1> 
+    <h2 style="color: hsl(206, 86%, 62%)"> Stock Data</h2>
 
     <div th:object="${quotes}">
-
-        <hr>
         <p>
-            <p>Stock Price of:</p>
-            <p th:text="*{symbol}"></p>
+
+            <p th:text="'Stock Price of: ' + *{symbol}"></p>
             <br>
-            <p>Last Price:</p>
-            <p th:text="*{lastPrice}"></p> 
+            <p th:text="'Last Price: ' + *{lastPrice}"></p> 
             <br>
-            <p>Total Volume:</p>
-            <p th:text="*{totalVolume}"></p>
+            <p th:text="'Total Volume: ' + *{totalVolume}"></p>
             <br>
-            <p>Open Price:</p>
-            <p th:text="*{openPrice}"></p>
+            <p th:text="'Open Price: ' + *{openPrice}"></p>
             <br>
-            <p>Close Price:</p>
-            <p th:text="*{closePrice}"></p>
+            <p th:text="'Close Price: ' + *{closePrice}"></p>
             <br>
-            <p>Low Price:</p>
-            <p th:text="*{lowPrice}"></p>
+            <p th:text="'Low Price: ' + *{lowPrice}"></p>
             <br>
-            <p>High Price:</p>
-            <p th:text="*{highPrice}"></p>
+            <p th:text="'High Price: ' + *{highPrice}"></p>
             <br>
-            <p>Net Change:</p>
-            <p th:text="*{netChange}"></p>
+            <p th:text="'Net Change: ' + *{netChange}"></p>
             <br>
-            <p>52 Week High:</p>
-            <p th:text="*{fiftyTwoWkHigh}"></p>
+            <p th:text="'52 Week High: ' + *{fiftyTwoWkHigh}"></p>
             <br>
-            <p>52 Week Low:</p>
-            <p th:text="*{fiftyTwoWkLow}"></p>
+            <p th:text="'52 Week Low: ' + *{fiftyTwoWkLow}"></p>
         </p>
     </div>
     <!-- should use href here and button or jsut use <input type="submit" value="Save"/> -->
@@ -83,7 +72,7 @@
         <input type="hidden" th:field="${quotes.fiftyTwoWkLow}"></input>
         <input type="hidden" th:field="${quotes.lastPrice}"></input>
 
-    <button type="submit">Add</button>
+    <button type="submit">Add To Watchlist</button>
    
     </form>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>

@@ -31,13 +31,14 @@ public class RedisConfig {
     @Value("${spring.redis.port}")
     private Optional<Integer> redisPort;
 
-    @Value("${spring.redis.password}")
-    private String redisPassword;
+    //when running locally, key in pw here, and // bottom 
+    private String redisPassword = ""; 
 
     @Bean
     @Scope("singleton")
     public RedisTemplate<String, User> redisTemplate() {
         final RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
+        redisPassword = System.getenv("redisPassword"); //when uploading to heroku
         config.setHostName(redisHost);
         config.setPort(redisPort.get());
         config.setPassword(redisPassword);

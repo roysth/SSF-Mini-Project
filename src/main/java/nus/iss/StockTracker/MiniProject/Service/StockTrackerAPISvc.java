@@ -19,10 +19,11 @@ public class StockTrackerAPISvc {
 
     private static final Logger logger = LoggerFactory.getLogger(StockTrackerAPISvc.class);
 
-    //private String apiKey = System.getenv("API_KEY");
+    private String apiKey = System.getenv("API_KEY");
 
-    @Value("${open.stock.tracker}")
-    private String apiKey;
+    //when working locally
+    //@Value("${open.stock.tracker}")
+    //private String apiKey;
 
     private static String qURL = "https://api.tdameritrade.com/v1/marketdata/quotes";
 

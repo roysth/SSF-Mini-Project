@@ -59,7 +59,7 @@
                 <td th:text="${quotes.lastPrice}"></td>
                 <td> 
                     <a th:href="@{'/delete/'+ ${username} + '/' + ${quotes.symbol}}">
-                    <button type="button">Delete</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
                     </a>
                 </td>
             </tr>

@@ -19,6 +19,7 @@ public class StockTrackerAPISvc {
 
     private static final Logger logger = LoggerFactory.getLogger(StockTrackerAPISvc.class);
 
+    //when uploading 
     private String apiKey = System.getenv("API_KEY");
 
     //when working locally

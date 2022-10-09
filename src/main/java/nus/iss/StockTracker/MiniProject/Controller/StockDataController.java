@@ -39,7 +39,6 @@ public class StockDataController {
 
     @RequestMapping ("/")
     public String loginPage (Model model){
-        //TODO BE USED LATER TO SHOW THE USER NAME
         //model.addAttribute ("user", userC);
         return "index";
     }
@@ -76,10 +75,8 @@ public class StockDataController {
         return "watchlist"; 
     }
 
-    /* TO CREATE LINK TO PAGES*/
 
     //Add the quotes to watchlist using the "add" button 
-    //change the path
     @PostMapping ("/add/{username}")
     public String add (@PathVariable(name="username", required=true) String username, @ModelAttribute Quotes quotes, Model model) {
         logger.info(">>> TEST" + quotes.getSymbol());
@@ -111,7 +108,6 @@ public class StockDataController {
     }
 
     //link to enter ticker page
-    //TODO - AUTOWIRE QUOTES
     @GetMapping ("/enterticker/{username}")
     public String getquotesdata (@PathVariable(name="username", required=true) String username, Model model) {
         Quotes q = new Quotes();
@@ -119,8 +115,6 @@ public class StockDataController {
         model.addAttribute("username", username); 
         return "enterticker";
     }   
-
-    /* TO GET DATA FROM API */
 
     @GetMapping ("/quotes/{username}")
     public String quotes (@PathVariable(name="username", required=true) String username, @RequestParam String ticker, Model model) {

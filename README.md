@@ -3,8 +3,8 @@
 mvn spring-boot:run
 ```
 
- radiant-headland-33727
-https://radiant-headland-33727.herokuapp.com/ | https://git.heroku.com/radiant-headland-33727.git
+https://stockstrackerapp.herokuapp.com/ | https://git.heroku.com/stockstrackerapp.git
+
 
 ```
 
